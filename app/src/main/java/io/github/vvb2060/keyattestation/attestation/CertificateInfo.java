@@ -64,16 +64,81 @@ public class CertificateInfo {
             "MdsGUmX4RFlXYfC78hdLt0GAZMAoDo9Sd47b0ke2RekZyOmLw9vCkT/X11DEHTVm" +
             "+Vfkl5YLCazOkjWFmwIDAQAB";
 
+    private static final String KNOX_SAKV1_ROOT_PUBLIC_KEY = "" +
+            "MIGbMBAGByqGSM49AgEGBSuBBAAjA4GGAAQBs9Qjr//REhkXW7jUqjY9KNwWac4r" +
+            "5+kdUGk+TZjRo1YEa47Axwj6AJsbOjo4QsHiYRiWTELvFeiuBsKqyuF0xyAAKvDo" +
+            "fBqrEq1/Ckxo2mz7Q4NQes3g4ahSjtgUSh0k85fYwwHjCeLyZ5kEqgHG9OpOH526" +
+            "FFAK3slSUgC8RObbxys=";
+
     private static final String KNOX_SAKV2_ROOT_PUBLIC_KEY = "" +
             "MIGbMBAGByqGSM49AgEGBSuBBAAjA4GGAAQBhbGuLrpql5I2WJmrE5kEVZOo+dgA" +
             "46mKrVJf/sgzfzs2u7M9c1Y9ZkCEiiYkhTFE9vPbasmUfXybwgZ2EM30A1ABPd12" +
             "4n3JbEDfsB/wnMH1AcgsJyJFPbETZiy42Fhwi+2BCA5bcHe7SrdkRIYSsdBRaKBo" +
             "ZsapxB0gAOs0jSPRX5M=";
+    
+    private static final String KNOX_SAKMV1_ROOT_PUBLIC_KEY = "" +
+            "MIGbMBAGByqGSM49AgEGBSuBBAAjA4GGAAQB9XeEN8lg6p5xvMVWG42P2Qi/aRKX" +
+            "2rPRNgK92UlO9O/TIFCKHC1AWCLFitPVEow5W+yEgC2wOiYxgepY85TOoH0AuEkL" +
+            "oiC6ldbF2uNVU3rYYSytWAJg3GFKd1l9VLDmxox58Hyw2Jmdd5VSObGiTFQ/SgKs" +
+            "n2fbQPtpGlNxgEfd6Y8=";
+
+    // 1 and 2 are possibly invalid, but can't verify for sure
+    private static final String KNOX_UNKNOWN_ROOT_PUBLIC_KEY1 = "" +
+            "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvtPYbYi7FoEDaDZjXjzk" +
+            "u3AAW/ZYCBHvSkCriH7lmbHq1HQETKkKG3FQ8DcDDDBXN/DSVqSFVeZzyqzFeGHJ" +
+            "BBeA7TfiHqRGATml0krixMEeCXVYvm6vcWyTg5raE5R4/fKRI/iL1SBZRdMZraum" +
+            "V/RUCVtlknoDhcfQvX3EwMvjz7tBEBPuh1z2h6jcMN1qzkbWG2Gh4gPd6Ua7YHXC" +
+            "QAPY6t1x81lmsOTcqJF5Kub5gX/e5Qc/luGgAFcdb7vzr63g6mlkWObzQYIfa3s9" +
+            "rsB+JJA/gOT1u6b1JBhRMK7xMZZjMhaWBqHrvR2Z5V6k7riI3SkhCrC3wGBGDtHF" +
+            "uKmMgoNAGLiQu9qOLxwI2zhotV5v7/pDerXYWWdup63hsjlw2JeUlQFtmv4irbE4" +
+            "ZtdLpUtzImQUsQ6jkc4OoDh5XfeM1c3NndrmtOMs1y06q45gMqO5pY2wqrEkMTuR" +
+            "IbbZdyk2I1cnVKFfBQXtcTFv1nBZljFQqdoMjNB56pRoHnRf6kYv1pQmEgL1mSbd" +
+            "NWJ7JttPGRbPfuMUTbV1a6CH3xklJrwXYEpRyp/LO4IbPgqsuW6SUYDM0b436hqH" +
+            "IGIT7A0qF1cIkw/agTuplIrjbt9NACDA2XHKk0uOGBpi1QJxX+QzFivq+1Xa7xD/" +
+            "rzXOYttgq2R8MaINwNEHhe0CAwEAAQ==";
+
+    private static final String KNOX_UNKNOWN_ROOT_PUBLIC_KEY2 = "" +
+            "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuOKn9riLhi/nCn6x8I6q" +
+            "hzBnxrFIdbVv3UrfqJEf4CQ8MUtoKK9l7g+e/XtwtOfD5nHprgPWX4w/vPLuj7Pc" +
+            "W6x69tu26h+T/J5jlmLiKoqYnmH7MbDNdv6v7lBEbPJHjYNH9i3oH1u5UeUrLHk5" +
+            "aNPhGPOLQH8VPYsrrfJIIgHKuNnMTR+L3Vf9MqyCeehIh97WZ4rbNxTDmZ+iorcQ" +
+            "tVnvhXtMt6v+N65BvkeuL8In1knVJIsfC/H/riEfJ3r5YHpD57kYXJ93epVRK9I5" +
+            "IryILL+61V4g5iyjQOvqAO/WzxbOZNJiG3Hdt2bsHl4mEtcUCvOnuG1h0Jkpyfg6" +
+            "8QIDAQAB";
+
+    private static final String KNOX_UNKNOWN_ROOT_PUBLIC_KEY3 = "" +
+            "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4MKBh1Wv0tHgjaNygCO5" +
+            "9jGA3wkxBttSsJhamGseXPNQbWa/gqOrJkJ7Wg26Bj/k5A6GVad6WaTD1W3Cm8N+" +
+            "wDgzQ8O8hQitZervX2iZTMTnXVWV5IMOKBIWn9TExmwM7xwJgMG1+TVC58fuz4Y6" +
+            "Bd2UG6zCfNsgIW5saqQ7i/QVJckyoocAqu510qn7hg7a1sV6vnaoO71uURmj1CCL" +
+            "ZzDeI8IpnmvT5PQ+dfuF4G5RRxSyRB3w7OnkxOFF/lBsTooRv1qzCkcNIEQgz4vl" +
+            "zfHgG3durSS0kdafTQ1N5TKSWEp0kAZt1V9ROrEy3Vf+WwIerxYMIcJd1120oyQR" +
+            "3QIDAQAB"; // Root CA RSA
+
+    private static final String KNOX_UNKNOWN_ROOT_PUBLIC_KEY4 = "" +
+            "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA1GrVFUqLAK4f7GkXKXDv" +
+            "083jjYn69sQDTMWVRsvDV08HBYomJ+B2RsuMTkP7tJeoRxXYnPrJnDYelazWM6z8" +
+            "K0/v3rqtlR5ZqtoM1GEnT7OaoeDBj/aO4mcGBmpFIUZjap6dXvVyMSJrHBBONQ49" +
+            "DbjJGfqsKAhzagT9GuNIWMVHL2w0gJtf1EkrKeicjaT9MQhOTJ//vX+av0RQrKtl" +
+            "Q43NscUqJMdjCnYr9nYRmqllN51nDyZQKkFY5qftSIqPEGSAdJUwCGeNH6EYb3Fn" +
+            "6L8YPZcjyhQ3z90okYEkRyppIazTVhxlHLSocUJ/cgSSkFjkwDTpG+LBR5JqatDO" +
+            "L0t8XHMdkbDbD2XW+EhvOvXhKNZ2H3N46bcFs9/Ln5KYmq6hqGEuQz/p3R5Ff3nc" +
+            "o3nvGPmh9Q/36VukcQImev1gQORhitEEQWKGwGkxhIQ51FS8j4T9pJGj2v5KLfQs" +
+            "I7rPtczlMhefbQk7gMesOvU8oQDhvz4ej51XM2bF6Kxgzq1v1LeoCINF0fg+s+fm" +
+            "LXaeVLFAK/lw6N+H7c8VRQtJhoBq6FP4yHwuL13wECpZQnI88YzpwKjSt2zLNTNz" +
+            "zkRDkTaOIgdKB1DVhK/5mhaXO3aoWxklK+c27LFK9kP3+p273OQTNxbW1s3JKMQk" +
+            "NFjwIHcQoChMj6agudo0QVMCAwEAAQ==";
 
     private static final byte[] googleKey = Base64.decode(GOOGLE_ROOT_PUBLIC_KEY, 0);
     private static final byte[] aospEcKey = Base64.decode(AOSP_ROOT_EC_PUBLIC_KEY, 0);
     private static final byte[] aospRsaKey = Base64.decode(AOSP_ROOT_RSA_PUBLIC_KEY, 0);
-    private static final byte[] knoxSakv2Key = Base64.decode(KNOX_SAKV2_ROOT_PUBLIC_KEY, 0);
+    private static final byte[] knoxSakV1Key = Base64.decode(KNOX_SAKV1_ROOT_PUBLIC_KEY, 0);
+    private static final byte[] knoxSakV2Key = Base64.decode(KNOX_SAKV2_ROOT_PUBLIC_KEY, 0);
+    private static final byte[] knoxSakmV1Key = Base64.decode(KNOX_SAKMV1_ROOT_PUBLIC_KEY, 0);
+    private static final byte[] knoxKeyU1 = Base64.decode(KNOX_UNKNOWN_ROOT_PUBLIC_KEY1, 0);
+    private static final byte[] knoxKeyU2 = Base64.decode(KNOX_UNKNOWN_ROOT_PUBLIC_KEY2, 0);
+    private static final byte[] knoxKeyU3 = Base64.decode(KNOX_UNKNOWN_ROOT_PUBLIC_KEY3, 0);
+    private static final byte[] knoxKeyU4 = Base64.decode(KNOX_UNKNOWN_ROOT_PUBLIC_KEY4, 0);
     private static final Set<PublicKey> oemKeys = getOemPublicKey();
 
     private final X509Certificate cert;
@@ -125,7 +190,13 @@ public class CertificateInfo {
             issuer = KEY_AOSP;
         } else if (Arrays.equals(publicKey, aospRsaKey)) {
             issuer = KEY_AOSP;
-        } else if (Arrays.equals(publicKey, knoxSakv2Key)) {
+        } else if (Arrays.equals(publicKey, knoxSakV1Key)
+                   || Arrays.equals(publicKey, knoxSakV2Key)
+                   || Arrays.equals(publicKey, knoxSakmV1Key)
+                   || Arrays.equals(publicKey, knoxKeyU1)
+                   || Arrays.equals(publicKey, knoxKeyU2)
+                   || Arrays.equals(publicKey, knoxKeyU3)
+                   || Arrays.equals(publicKey, knoxKeyU4)) {
             issuer = KEY_KNOX;
         } else if (oemKeys != null) {
             for (var key : oemKeys) {
