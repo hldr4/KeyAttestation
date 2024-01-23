@@ -94,6 +94,7 @@ public class AuthorizationList {
     public static final int KM_PURPOSE_DECRYPT = 1;
     public static final int KM_PURPOSE_SIGN = 2;
     public static final int KM_PURPOSE_VERIFY = 3;
+    public static final int KM_PURPOSE_DERIVE = 4; // since Keymaster 3.0 : https://source.android.com/docs/security/features/keystore/tags#purpose
     public static final int KM_PURPOSE_WRAP = 5;
     public static final int KM_PURPOSE_AGREE_KEY = 6;
     public static final int KM_PURPOSE_ATTEST_KEY = 7;
@@ -196,6 +197,7 @@ public class AuthorizationList {
             .put(KM_PURPOSE_ENCRYPT, "ENCRYPT")
             .put(KM_PURPOSE_SIGN, "SIGN")
             .put(KM_PURPOSE_VERIFY, "VERIFY")
+            .put(KM_PURPOSE_DERIVE, "DERIVE")
             .put(KM_PURPOSE_WRAP, "WRAP")
             .put(KM_PURPOSE_AGREE_KEY, "AGREE KEY")
             .put(KM_PURPOSE_ATTEST_KEY, "ATTEST KEY")
