@@ -137,7 +137,6 @@
     <string name="authorization_list_deviceUniqueAttestation">Device unique attestation</string>
     <string name="authorization_list_identityCredentialKey">Identity credential key</string>
 
-    <!-- https://cs.android.com/android/platform/superproject/+/main:hardware/interfaces/security/keymint/aidl/android/hardware/security/keymint/Tag.aidl -->
     <string name="authorization_list_description"><![CDATA[
     This data structure contains the key pair\'s properties themselves, as defined in the Keymaster or KeyMint hardware abstraction layer (HAL). You compare these values to the device\'s current state or to a set of expected values to verify that a key pair is still valid for use in your app.
     ]]></string>
