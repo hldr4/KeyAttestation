@@ -319,6 +319,78 @@
     "b8ac6e0771a0958aeaa4b68a111a5dee" : {
       "status": "REVOKED",
       "reason": "KEY_COMPROMISE"
+    },
+    "94f4943f978b93b4d7f4e69dc20b4d6b" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "c39c08de9731fd57d124c3e17c53faca" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "e24e5301403dcb9bad30918083fa15c7" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "dfd704581cbf9fe223b5c351fab83b4e" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "dfd0bf6bb1cb606ef65572412c0d1ac8" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "4d818d8a042b22646a42c395e5c86d6" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "7f9ec229afd8185d8432f408108e0991" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "846736b71487a74075ed6f33f58e4b33" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "14e38b3979edef06d0e95b7131a08b22" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "c2272cf25f9ccac5b5633a36b5e08fa9" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "8868809403284598250" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "15443728027744674372" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "224403031710863989" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "3882667606589968590" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "8398415515671998339" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "13965740041072508681" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "70771aada0054842160ef0764bce1623" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
+    },
+    "119e72132a781e012ce7a8e68533b140" : {
+      "status": "REVOKED",
+      "reason": "KEY_COMPROMISE"
     }
   }
 }
