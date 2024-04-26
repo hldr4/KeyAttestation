@@ -1,63 +1,48 @@
 package io.github.vvb2060.keyattestation.attestation;
 
-import android.os.Build;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
-import java.util.Locale;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import io.github.vvb2060.keyattestation.AppApplication;
-import io.github.vvb2060.keyattestation.R;
 
 public record RevocationList(String status, String reason) {
     private static final JSONObject data = getStatus();
 
-    private static String toString(InputStream input) throws IOException {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            return new String(input.readAllBytes(), StandardCharsets.UTF_8);
-        } else {
-            var output = new ByteArrayOutputStream(8192);
-            var buffer = new byte[8192];
-            for (int length; (length = input.read(buffer)) != -1; ) {
-                output.write(buffer, 0, length);
-            }
-            return output.toString();
-        }
-    }
-
-    private static JSONObject parseStatus(InputStream inputStream) throws IOException {
-        try {
-            var statusListJson = new JSONObject(toString(inputStream));
-            return statusListJson.getJSONObject("entries");
-        } catch (JSONException e) {
-            throw new IOException(e);
-        }
-    }
-
     private static JSONObject getStatus() {
-        var statusUrl = "https://android.googleapis.com/attestation/status";
-        var resName = "android:string/vendor_required_attestation_revocation_list_url";
-        var res = AppApplication.app.getResources();
-        // noinspection DiscouragedApi
-        var id = res.getIdentifier(resName, null, null);
-        if (id != 0) {
-            var url = res.getString(id);
-            if (!statusUrl.equals(url) && url.toLowerCase(Locale.ROOT).startsWith("https")) {
-                // no network permission, waiting for user report
-                throw new RuntimeException("unknown status url: " + url);
+        try {
+            URL url = new URL("https://android.googleapis.com/attestation/status");
+
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+
+            con.setRequestMethod("GET");
+
+            con.setRequestProperty("Content-Type", "application/json");
+
+            StringBuilder response = new StringBuilder();
+
+            String inputLine;
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
             }
+
+            con.disconnect();
+
+            return new JSONObject(response.toString());
+
+        } catch (Throwable t) {
+            Log.e(AppApplication.TAG, "getStatus", t);
         }
-        try (var input = res.openRawResource(R.raw.status)) {
-            return parseStatus(input);
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to parse certificate revocation status", e);
-        }
+        return null;
     }
 
     public static RevocationList get(BigInteger serialNumber) {
