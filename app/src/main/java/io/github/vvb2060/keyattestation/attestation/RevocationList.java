@@ -2,7 +2,8 @@ package io.github.vvb2060.keyattestation.attestation;
 
 import android.util.Log;
 
-import org.json.JSONException;
+import androidx.annotation.NonNull;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -24,6 +25,9 @@ public record RevocationList(String status, String reason) {
 
             con.setRequestMethod("GET");
 
+            con.setUseCaches(false);
+            con.setDefaultUseCaches(false);
+
             con.setRequestProperty("Content-Type", "application/json");
 
             StringBuilder response = new StringBuilder();
@@ -42,26 +46,28 @@ public record RevocationList(String status, String reason) {
         } catch (Throwable t) {
             Log.e(AppApplication.TAG, "getStatus", t);
         }
+
         return null;
     }
 
     public static RevocationList get(BigInteger serialNumber) {
         String serialNumberString = serialNumber.toString(16).toLowerCase();
-        JSONObject revocationStatus;
+
         try {
-            revocationStatus = data.getJSONObject(serialNumberString);
-        } catch (JSONException e) {
-            return null;
+            JSONObject entries = data.getJSONObject("entries");
+
+            JSONObject revoke = entries.getJSONObject(serialNumberString);
+
+            return new RevocationList(revoke.getString("status"), revoke.getString("reason"));
+
+        } catch (Throwable t) {
+            Log.e(AppApplication.TAG, "getRevocationList", t);
         }
-        try {
-            var status = revocationStatus.getString("status");
-            var reason = revocationStatus.getString("reason");
-            return new RevocationList(status, reason);
-        } catch (JSONException e) {
-            return new RevocationList("", "");
-        }
+
+        return null;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "status is " + status + ", reason is " + reason;
