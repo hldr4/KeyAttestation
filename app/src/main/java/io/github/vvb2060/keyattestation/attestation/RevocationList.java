@@ -29,6 +29,7 @@ public record RevocationList(String status, String reason) {
             con.setDefaultUseCaches(false);
 
             con.setRequestProperty("Content-Type", "application/json");
+            con.setRequestProperty("Cache-Control", "max-age=0");
 
             StringBuilder response = new StringBuilder();
 
